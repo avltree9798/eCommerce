@@ -8,8 +8,13 @@
   if(!empty($row['Username'])){
     session_start();
     $_SESSION["username"]=$username;
+    $_SESSION["Id"]=$row['Id'];
     $_SESSION["role"]=$row['Role'];
-    echo "Login Success";
+    if($row['Role']==1){
+      header("location:../adminpanel");
+    }else{
+      header("location:../userpanel");
+    }
   }else{
     echo "Login Failed";
   }

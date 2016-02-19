@@ -8,7 +8,6 @@
     include '../controller/config.php';
     session_start();
     $ProductName = $_POST["ProductName"];
-    $CategoryID = $_POST["CategoryID"];
     $ProductPrice = $_POST["ProductPrice"];
     $ProductTag = $_POST["ProductTag"];
     $idUser = $_SESSION["Id"];
@@ -27,7 +26,7 @@
         }
         if(empty($errors)==true){
             move_uploaded_file($_FILES['image']['tmp_name'],"../assets/images/".$file_name);
-            $query = "INSERT INTO products(ProductName,ProductImage,CategoryID,RequestPrice,UserID) VALUES('$ProductName','$file_name','$CategoryID',$ProductPrice,$idUser)";
+            $query = "INSERT INTO design(ProductName,ProductImage,RequestPrice,UserID) VALUES('$ProductName','$file_name',$ProductPrice,$idUser)";
             mysql_query($query) or die();
             $id = mysql_insert_id();
             $tags = explode(";",$ProductTag);
