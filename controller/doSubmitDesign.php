@@ -11,34 +11,49 @@
     $ProductPrice = $_POST["ProductPrice"];
     $ProductTag = $_POST["ProductTag"];
     $idUser = $_SESSION["Id"];
-    if(isset($_FILES['image'])){
-        $errors= array();
-        $file_size =$_FILES['image']['size'];
-        $file_tmp =$_FILES['image']['tmp_name'];
-        $file_type=$_FILES['image']['type'];
-        $file_name = $ProductName.'.'.substr($_FILES['image']['name'],strrpos($_FILES['image']['name'],'.')+1);
-        $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-
-        $expensions= array("jpeg","jpg","png");
-
-        if(in_array($file_ext,$expensions)=== false){
-            $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-        }
-        if(empty($errors)==true){
-            move_uploaded_file($_FILES['image']['tmp_name'],"../assets/images/".$file_name);
-            $query = "INSERT INTO design(ProductName,ProductImage,RequestPrice,UserID) VALUES('$ProductName','$file_name',$ProductPrice,$idUser)";
-            mysql_query($query) or die();
-            $id = mysql_insert_id();
+	
+    $uploadDir = "../DesignImage/";
+$uploadFile = $_FILES['image'];
+$extractFile = pathinfo($uploadFile['name']);
+$nama_gambar=$_FILES['image'] ['name']; 
+$tmp_gambar=$_FILES['image'] ['tmp_name'];
+$tipe_gambar=$_FILES['image'] ['type']; 
+$size_gambar=$_FILES['image'] ['size']; 
+$folder="../DesignImage/$nama_gambar"; 
+if ($size_gambar<2200000&&($tipe_gambar=="image/jpeg" || ($tipe_gambar=="image/jpg" || $tipe_gambar=="image/png")))
+{
+	
+	$sameName = 0; // Menyimpan banyaknya file dengan nama yang sama dengan file yg diupload
+	$handle = opendir($uploadDir);
+	while(false !== ($file = readdir($handle))){ 
+		if(strpos($file,$extractFile['filename']) !== false)
+		$sameName++; // Tambah data file yang sama
+	}
+ 
+	/* Apabila tidak ada file yang sama ($sameName masih '0') maka nama file pakai 
+	* nama ketika diupload, jika $sameName > 0 maka pakai format "namafile($sameName).ext */
+	$nama_gambar = empty($sameName) ? $uploadFile['name'] : $extractFile['filename'].'('.$sameName.').'.$extractFile['extension'];
+ $gambar=$nama_gambar;
+	
+	
+$upload=move_uploaded_file($tmp_gambar,$uploadDir.$nama_gambar);
+if($upload){
+	$query = "INSERT INTO design(ProductName,ProductImage,RequestPrice,UserID) VALUES('$ProductName','$gambar',$ProductPrice,$idUser)";
+     mysql_query($query) or die(mysql_error());
+	 $id = mysql_insert_id();
             $tags = explode(";",$ProductTag);
             for($i=0;$i<count($tags);$i++){
                 $q = "INSERT INTO productstags(ProductID, Tag) VALUES ($id, '$tags[$i]')";
-                mysql_query($q) or die();
-            }
-            header("location:../userpanel");
+                mysql_query($q) or die();}
+    echo"upload&insert";
+	header("location:../adminpanel");
+}
+else {
+    echo "gagal<br>";
+}
+}
 
-        }else{
-            print_r($errors);
-        }
-    }else{
-
-    }
+else
+{
+die ("Gunakan file yang benar (JPEG, JPG, atau PNG) <br>");
+}

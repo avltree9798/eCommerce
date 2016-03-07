@@ -14,7 +14,7 @@
     $cat = mysql_query($queryCategory);
     if($row[0]!=null){
         ?>
-        <form action="../controller/doMakeProduct.php" method="post">
+        <form action="../controller/doMakeProduct.php" method="post" enctype="multipart/form-data">
             <img src="../assets/image.php?img=<?php echo $row['ProductImage']; ?>" width="200" height="200"/><br/>
             <input type="hidden" name="id" value="<?php echo $row['Id']; ?>"/>
             Product Category : <select name="CategoryID" required>
@@ -24,7 +24,13 @@
                 }
                 ?>
             </select><br/>
-            Price : <input type="number" value="<?php echo $row['RequestPrice']; ?>" name="price"/>
+            Price : <input type="number" value="<?php echo $row['RequestPrice']; ?>" name="price"/><br/>
+            Product Name : <input type="text"  name="ProductName" required/><br/>
+            Description : <input type="text"  name="Description" required/><br/>
+            Product Image 1 : <input type="file" name="image" required/><br/>
+            Product Image 2 : <input type="file" name="image1" required/><br/>
+            Product Image 3 : <input type="file" name="image2" required/><br/>
+            
             <input type="submit" value="Save">
         </form>
         <?php

@@ -1,0 +1,3 @@
+select p.id, pd.productname, pp.price, c.name, p.categoryid, d.productimage, pd.pimg1
+from design d, products p, categories c, productsprice pp, productdesc pd
+where d.id=p.designid and p.categoryid=c.id and p.id=pp.productid and p.id=pd.productid and pp.isCurrent = 1

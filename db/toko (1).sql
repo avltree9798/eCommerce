@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 Feb 2016 pada 16.03
+-- Generation Time: 23 Feb 2016 pada 16.07
 -- Versi Server: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -35,43 +35,23 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- Dumping data untuk tabel `categories`
 --
 
-INSERT INTO `categories` (`Id`, `Name`) VALUES
-(1, 'Baju'),
-(2, 'tops'),
-(3, 'bottom'),
-(4, 'dress'),
-(5, 'bags'),
-(6, 'totebag'),
-(7, 'sticker'),
-(8, 'homedecor'),
-(9, 'notebook'),
-(10, 'case hp'),
-(11, 'artbook'),
-(12, 'artprint'),
-(13, 'pin'),
-(14, 'scarf'),
-(15, 'greeting cards'),
-(16, 'post card'),
-(17, 'accessories');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `country`
---
-
-CREATE TABLE IF NOT EXISTS `country` (
-`CountryID` int(11) NOT NULL,
-  `CountryName` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `country`
---
-
-INSERT INTO `country` (`CountryID`, `CountryName`) VALUES
-(1, 'Indonesia'),
-(2, 'United States of America');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(1, 'Baju');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(2, 'tops');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(3, 'bottom');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(4, 'dress');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(5, 'bags');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(6, 'totebag');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(7, 'sticker');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(8, 'homedecor');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(9, 'notebook');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(10, 'case hp');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(11, 'artbook');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(12, 'artprint');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(13, 'pin');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(14, 'scarf');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(15, 'greeting cards');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(16, 'post card');
+INSERT INTO `categories` (`Id`, `Name`) VALUES(17, 'accessories');
 
 -- --------------------------------------------------------
 
@@ -92,8 +72,7 @@ CREATE TABLE IF NOT EXISTS `design` (
 -- Dumping data untuk tabel `design`
 --
 
-INSERT INTO `design` (`Id`, `ProductName`, `ProductImage`, `RequestPrice`, `UserID`, `created_at`) VALUES
-(9, 'Jennifer', 'Jennifer.PNG', 150000, 1, '2016-02-23 14:48:47');
+INSERT INTO `design` (`Id`, `ProductName`, `ProductImage`, `RequestPrice`, `UserID`, `created_at`) VALUES(9, 'Jennifer', 'Jennifer.PNG', 150000, 1, '2016-02-23 14:48:47');
 
 -- --------------------------------------------------------
 
@@ -117,8 +96,7 @@ CREATE TABLE IF NOT EXISTS `productdesc` (
 -- Dumping data untuk tabel `productdesc`
 --
 
-INSERT INTO `productdesc` (`Id`, `ProductID`, `ProductName`, `Description`, `pimg1`, `pimg2`, `pimg3`, `pimg4`, `pimg5`) VALUES
-(25, 51, 'Baju pertama', 'bajujujujuju', 'monositelogo(2).jpg', 'artisticcs(8).PNG', 'monositebg(1).PNG', '', '');
+INSERT INTO `productdesc` (`Id`, `ProductID`, `ProductName`, `Description`, `pimg1`, `pimg2`, `pimg3`, `pimg4`, `pimg5`) VALUES(25, 51, 'Baju pertama', 'bajujujujuju', 'monositelogo(2).jpg', 'artisticcs(8).PNG', 'monositebg(1).PNG', '', '');
 
 -- --------------------------------------------------------
 
@@ -136,8 +114,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Dumping data untuk tabel `products`
 --
 
-INSERT INTO `products` (`Id`, `DesignID`, `CategoryID`) VALUES
-(51, 9, 1);
+INSERT INTO `products` (`Id`, `DesignID`, `CategoryID`) VALUES(51, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -156,8 +133,7 @@ CREATE TABLE IF NOT EXISTS `productsprice` (
 -- Dumping data untuk tabel `productsprice`
 --
 
-INSERT INTO `productsprice` (`Id`, `ProductID`, `Price`, `isCurrent`) VALUES
-(49, 51, 150000, 1);
+INSERT INTO `productsprice` (`Id`, `ProductID`, `Price`, `isCurrent`) VALUES(49, 51, 150000, 1);
 
 -- --------------------------------------------------------
 
@@ -175,8 +151,7 @@ CREATE TABLE IF NOT EXISTS `productstags` (
 -- Dumping data untuk tabel `productstags`
 --
 
-INSERT INTO `productstags` (`Id`, `ProductID`, `Tag`) VALUES
-(17, 9, 'abstract');
+INSERT INTO `productstags` (`Id`, `ProductID`, `Tag`) VALUES(17, 9, 'abstract');
 
 -- --------------------------------------------------------
 
@@ -195,8 +170,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
 -- Dumping data untuk tabel `stock`
 --
 
-INSERT INTO `stock` (`Id`, `ProductID`, `UnitID`, `Stock`) VALUES
-(49, 51, 6, 0);
+INSERT INTO `stock` (`Id`, `ProductID`, `UnitID`, `Stock`) VALUES(49, 51, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -214,38 +188,12 @@ CREATE TABLE IF NOT EXISTS `units` (
 -- Dumping data untuk tabel `units`
 --
 
-INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES
-(1, 1, 'XS'),
-(2, 1, 'S'),
-(3, 1, 'M'),
-(4, 1, 'L'),
-(5, 1, 'XL'),
-(6, 0, '-');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
---
-
-CREATE TABLE IF NOT EXISTS `user` (
-`Id` int(11) NOT NULL,
-  `Fullname` varchar(255) NOT NULL,
-  `Username` varchar(255) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL,
-  `CountryID` int(11) NOT NULL,
-  `Address` text NOT NULL,
-  `Role` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `user`
---
-
-INSERT INTO `user` (`Id`, `Fullname`, `Username`, `Email`, `Password`, `CountryID`, `Address`, `Role`) VALUES
-(1, 'Administrator', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, 'TEst', 1),
-(19, 'apadah', 'apadah', 'apadah@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1, 'erferferf', 2);
+INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES(1, 1, 'XS');
+INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES(2, 1, 'S');
+INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES(3, 1, 'M');
+INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES(4, 1, 'L');
+INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES(5, 1, 'XL');
+INSERT INTO `units` (`Id`, `CategoryID`, `Unit`) VALUES(6, 0, '-');
 
 --
 -- Indexes for dumped tables
@@ -256,12 +204,6 @@ INSERT INTO `user` (`Id`, `Fullname`, `Username`, `Email`, `Password`, `CountryI
 --
 ALTER TABLE `categories`
  ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `country`
---
-ALTER TABLE `country`
- ADD PRIMARY KEY (`CountryID`);
 
 --
 -- Indexes for table `design`
@@ -306,12 +248,6 @@ ALTER TABLE `units`
  ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`Id`), ADD KEY `CountryID` (`CountryID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -320,11 +256,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `categories`
 MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `country`
---
-ALTER TABLE `country`
-MODIFY `CountryID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `design`
 --
@@ -360,21 +291,6 @@ MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 --
 ALTER TABLE `units`
 MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `user`
---
-ALTER TABLE `user`
-ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`CountryID`) REFERENCES `country` (`CountryID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
