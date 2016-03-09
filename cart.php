@@ -54,7 +54,7 @@ if(isset($_SESSION['cartSystem']['item'][0])) {
             <td colspan="8" align="right">Total : <?php echo 'Rp.'.$total.' or $'.$cur->exchange_rate_convert("IDR","USD",$total); ?></td>
         </tr>
         <tr>
-            <td colspan="8" align="center"><input type="button" value="Checkout Cart"/><input type="button" onclick="window.location.href='clearCart.php'" value="Clear Cart"/></td>
+            <td colspan="8" align="center"><input type="button" onclick="window.location.href='controller/doCheckOut.php'" value="Checkout Cart"/><input type="button" onclick="window.location.href='clearCart.php'" value="Clear Cart"/></td>
         </tr>
     </table>
     <?php

@@ -14,6 +14,8 @@ $ProductDescription = $_POST["ProductDesctiption"];
 $cariHarga = "SELECT * FROM productsprice WHERE ProductID = $id AND isCurrent = 1";
 $resCariHarga = mysql_query($cariHarga);
 $row = mysql_fetch_array($resCariHarga);
+$updateDesc= "UPDATE products SET Description = '$ProductDescription' WHERE Id=$id";
+mysql_query($updateDesc) or die (mysql_error());
 if($row["Price"]!=$ProductPrice){
     $qUpdateHarga = "UPDATE productsprice SET isCurrent = 0 WHERE ProductID = $id AND isCurrent = 1";
     mysql_query($qUpdateHarga);
