@@ -26,10 +26,9 @@
             </select><br/>
             Price : <input type="number" value="<?php echo $row['RequestPrice']; ?>" name="price"/><br/>
             Product Name : <input type="text"  name="ProductName" required/><br/>
-            Description : <input type="text"  name="Description" required/><br/>
-            Product Image 1 : <input type="file" name="image" required/><br/>
-            Product Image 2 : <input type="file" name="image1" required/><br/>
-            Product Image 3 : <input type="file" name="image2" required/><br/>
+            Product Price : <input type="number" name="price" required/><br/>
+            Description : <textarea name="Description"></textarea><br/>
+            Product Image : <input type="file" name="image" required/><br/>
             
             <input type="submit" value="Save">
         </form>

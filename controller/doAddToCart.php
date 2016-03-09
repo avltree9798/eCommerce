@@ -21,7 +21,6 @@ if(isset($_SESSION['cartSystem']['item'][0])){
         if($_SESSION['cartSystem']['unit'][$index]==$unitID){
             $_SESSION['cartSystem']['qty'][$index]+=$qtys;
         }else{
-            echo "jaja";
             array_push($_SESSION['cartSystem']['item'],$productID);
             array_push($_SESSION['cartSystem']['unit'],$unitID);
             array_push($_SESSION['cartSystem']['qty'],$qtys);

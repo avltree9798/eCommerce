@@ -9,7 +9,7 @@ require 'lib/Functions.php';
 include 'controller/config.php';
 //$query = "SELECT d.ProductName, c.Name, u.Unit, s.Stock, pp.Price FROM design d JOIN products p ON d.Id = p.DesignID JOIN categories c ON p.CategoryID = c.Id, units u, stock s, productsprice pp
 //WHERE c.Id = u.CategoryID AND s.ProductID = p.Id AND s.UnitID = u.Id AND pp.ProductID = p.Id AND pp.isCurrent = 1";
-$query = "SELECT p.Id, d.ProductName, d.ProductImage, c.Name, pp.Price, p.CategoryID FROM design d JOIN products p ON d.Id = p.DesignID JOIN categories c ON p.CategoryID = c.Id, productsprice pp WHERE pp.ProductID = p.Id AND pp.isCurrent = 1";
+$query = "SELECT p.Id, p.ProductName, p.ProductImage, c.Name, pp.Price, p.CategoryID FROM design d JOIN products p ON d.Id = p.DesignID JOIN categories c ON p.CategoryID = c.Id, productsprice pp WHERE pp.ProductID = p.Id AND pp.isCurrent = 1";
 $result = mysql_query($query);
 $rate = new exchange_rates();
 while($row=mysql_fetch_array($result)){
@@ -43,7 +43,7 @@ while($row=mysql_fetch_array($result)){
                         ?><td colspan="3">
                         <table>
                         <?php
-                        $q = "SELECT * FROM units WHERE CategoryID=$cat";
+                        $q = "SELECT * FROM units WHERE CategoryID=1";
                         $res = mysql_query($q);
                         while($r = mysql_fetch_array($res)){
                             $id = $r["Id"];

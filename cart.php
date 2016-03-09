@@ -31,7 +31,7 @@ if(isset($_SESSION['cartSystem']['item'][0])) {
             for($i=0;$i<count($item);$i++){
                 $productID = $_SESSION['cartSystem']['item'][$i];
                 $unitID = $_SESSION['cartSystem']['unit'][$i];
-                $queryForProduct = "SELECT d.ProductName, c.Name, u.Unit, 3, pp.Price FROM products p JOIN design d ON p.DesignID = d.Id JOIN categories c ON p.CategoryID = c.Id JOIN stock s ON s.ProductID = p.Id JOIN units u ON s.UnitID = u.Id JOIN productsprice pp ON p.Id = pp.ProductID WHERE p.Id = $productID AND u.Id = $unitID AND pp.isCurrent = 1";
+                $queryForProduct = "SELECT p.ProductName, c.Name, u.Unit, 3, pp.Price FROM products p JOIN design d ON p.DesignID = d.Id JOIN categories c ON p.CategoryID = c.Id JOIN stock s ON s.ProductID = p.Id JOIN units u ON s.UnitID = u.Id JOIN productsprice pp ON p.Id = pp.ProductID WHERE p.Id = $productID AND u.Id = $unitID AND pp.isCurrent = 1";
                 $res = mysql_query($queryForProduct) or die(mysql_error());
                 $row = mysql_fetch_array($res);
                 $dollar = $cur->exchange_rate_convert("IDR","USD",$row["Price"]);
