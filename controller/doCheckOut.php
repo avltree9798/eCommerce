@@ -23,9 +23,18 @@ if(isset($_SESSION["Id"])){
         $row = mysql_fetch_array($res);
         $priceID = $row["Id"];
         $qty = $_SESSION['cartSystem']['qty'][$i];
-        $queryInsertDetail = "INSERT INTO detail VALUES(null,$productID,$priceID,$unitID,$qty)";
+        $queryInsertDetail = "INSERT INTO detail VALUES(null,$idHeader,$productID,$priceID,$unitID,$qty)";
         mysql_query($queryInsertDetail) or die(mysql_error());
     }
 }else{
     header("location:../login.php");
 }
+$searchAdmin = "SELECT Email FROM user WHERE Role=1"; // cari admin
+$result = mysql_query($searchAdmin);
+while($rows = mysql_fetch_array($result)){
+    $msg = "<h1>New Order</h1>
+            There is new order with transaction id : $idHeader
+    ";
+    mail($rows["Email"],"New Order",$msg);
+}
+echo "Please note your transaction id : ".$idHeader."<br/>Please confirm your payment to apa@apa.com";
