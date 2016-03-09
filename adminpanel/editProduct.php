@@ -14,7 +14,8 @@
 <html>
 <body>
     <img src="../assets/image.php?img=<?php echo $row["ProductImage"];?>" width="300" height="300"/>
-    <form>
+    <form method="post" action="../controller/doEditProduct.php">
+        <input type="hidden" name="Id" value="<?php echo $id; ?>"/>
         <table>
             <tr>
                 <td>Product Name</td>
@@ -29,52 +30,105 @@
             <tr>
                 <td>Product Description</td>
                 <td>:</td>
-                <td><textarea><?php echo $row["Description"]; ?></textarea></td>
+                <td><textarea name="ProductDesctiption"><?php echo $row["Description"]; ?></textarea></td>
             </tr>
             <tr>
                 <td colspan="3">
+                    <input type="hidden" name="cat" value="<?php echo $row["CategoryID"]; ?>"/>
                     <?php
                         $c = $row["CategoryID"];
                         if($c<5){
                             $q = "SELECT Stock FROM stock WHERE UnitID = 1 AND ProductID = $id";
-                            $re = mysql_query($qMax);
+                            $re = mysql_query($q);
                             $rw = mysql_fetch_array($re);
+                            $XS = $rw["Stock"];
+                            if($XS==null){
+                                $q = "INSERT INTO stock VALUES(null,$id,1,0)";
+                                mysql_query($q);
+                                $XS=0;
+                            }
+                            $q = "SELECT Stock FROM stock WHERE UnitID = 2 AND ProductID = $id";
+                            $re = mysql_query($q);
+                            $rw = mysql_fetch_array($re);
+                            $S = $rw["Stock"];
+                            if($S==null){
+                                $q = "INSERT INTO stock VALUES(null,$id,2,0)";
+                                mysql_query($q);
+                                $S=0;
+                            }
+                            $q = "SELECT Stock FROM stock WHERE UnitID = 3 AND ProductID = $id";
+                            $re = mysql_query($q);
+                            $rw = mysql_fetch_array($re);
+                            $M = $rw["Stock"];
+                            if($M==null){
+                                $q = "INSERT INTO stock VALUES(null,$id,3,0)";
+                                mysql_query($q);
+                                $M=0;
+                            }
+
+                            $q = "SELECT Stock FROM stock WHERE UnitID = 4 AND ProductID = $id";
+                            $re = mysql_query($q);
+                            $rw = mysql_fetch_array($re);
+                            $L = $rw["Stock"];
+                            if($L==null){
+                                $q = "INSERT INTO stock VALUES(null,$id,4,0)";
+                                mysql_query($q);
+                                $L=0;
+                            }
+                            $q = "SELECT Stock FROM stock WHERE UnitID = 5 AND ProductID = $id";
+                            $re = mysql_query($q);
+                            $rw = mysql_fetch_array($re);
+                            $XL = $rw["Stock"];
+                            if($XL==null){
+                                $q = "INSERT INTO stock VALUES(null,$id,5,0)";
+                                mysql_query($q);
+                                $XL=0;
+                            }
                             ?>
                             <table>
                                 <tr>
                                     <td>Stock XS</td>
                                     <td>:</td>
-                                    <td><input type="number" name="XS"/></td>
+                                    <td><input type="number" name="XS" value="<?php echo $XS; ?>"/></td>
                                 </tr>
                                 <tr>
                                     <td>Stock S</td>
                                     <td>:</td>
-                                    <td><input type="number" name="S"/></td>
+                                    <td><input type="number" name="S" value="<?php echo $S; ?>"/></td>
                                 </tr>
                                 <tr>
                                     <td>Stock M</td>
                                     <td>:</td>
-                                    <td><input type="number" name="M"/></td>
+                                    <td><input type="number" name="M" value="<?php echo $M; ?>"/></td>
                                 </tr>
                                 <tr>
                                     <td>Stock L</td>
                                     <td>:</td>
-                                    <td><input type="number" name="L"/></td>
+                                    <td><input type="number" name="L" value="<?php echo $L; ?>"/></td>
                                 </tr>
                                 <tr>
                                     <td>Stock XL</td>
                                     <td>:</td>
-                                    <td><input type="number" name="XL"/></td>
+                                    <td><input type="number" name="XL" value="<?php echo $XL; ?>"/></td>
                                 </tr>
                             </table>
                             <?php
                         }else{
+                            $q = "SELECT Stock FROM stock WHERE UnitID = 6 AND ProductID = $id";
+                            $re = mysql_query($q);
+                            $rw = mysql_fetch_array($re);
+                            $pcs = $rw["Stock"];
+                            if($pcs==null){
+                                $q = "INSERT INTO stock VALUES(null,$id,6,0)";
+                                mysql_query($q);
+                                $pcs=0;
+                            }
                             ?>
                             <table>
                                 <tr>
                                     <td>Stock</td>
                                     <td>:</td>
-                                    <td><input type="text" name="pcs"/></td>
+                                    <td><input type="text" name="pcs" value="<?php echo $pcs; ?>"/></td>
                                 </tr>
                             </table>
                             <?php

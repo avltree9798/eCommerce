@@ -40,7 +40,6 @@ if(isset($_FILES['image'])){
                 $queries = "INSERT INTO stock VALUES(NULL,$idProduct,$apa[$i],0)";
                 mysql_query($queries) or die(mysql_error());
             }
-            echo "Kemaei";
         }else{
             $queries = "INSERT INTO stock VALUES(NULL,$idProduct,6,0)";
             mysql_query($queries) or die(mysql_error());
