@@ -12,6 +12,7 @@ if(isset($_SESSION["username"])){ //Role 1 = Admin
         ?>
         <a href="activatingProduct.php">Make Product from Design</a><br/>
         <a href="productList.php">Product List</a>
+        <a href="viewTransaction.php">View Transaction</a>
         <?php
     }
 }else{
