@@ -14,7 +14,7 @@
 <html>
 <body>
     <img src="../assets/image.php?img=<?php echo $row["ProductImage"];?>" width="300" height="300"/>
-    <form method="post" action="../controller/doEditProduct.php">
+    <form enctype="multipart/form-data" method="post" action="../controller/doEditProduct.php">
         <input type="hidden" name="Id" value="<?php echo $id; ?>"/>
         <table>
             <tr>
@@ -135,6 +135,11 @@
                         }
                     ?>
                 </td>
+            </tr>
+            <tr>
+                <td>Upload new Image</td>
+                <td>:</td>
+                <td><input type="file" name="image"/></td>
             </tr>
             <tr>
                 <td colspan="3">
