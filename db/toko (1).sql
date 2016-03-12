@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 10, 2016 at 01:12 AM
+-- Generation Time: Mar 12, 2016 at 10:21 PM
 -- Server version: 5.6.28-1
 -- PHP Version: 5.6.17-3
 
@@ -84,6 +84,7 @@ CREATE TABLE `design` (
   `ProductName` varchar(255) NOT NULL,
   `ProductImage` varchar(255) NOT NULL,
   `RequestPrice` int(11) NOT NULL,
+  `Description` varchar(255) NOT NULL,
   `UserID` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -92,10 +93,22 @@ CREATE TABLE `design` (
 -- Dumping data for table `design`
 --
 
-INSERT INTO `design` (`Id`, `ProductName`, `ProductImage`, `RequestPrice`, `UserID`, `created_at`) VALUES
-(6, '34rf43r', '34rf43r.png', 23234, 1, '2016-02-16 13:45:06'),
-(7, 'egrgtgrt', 'egrgtgrt.png', 23232, 1, '2016-02-16 13:54:56'),
-(8, 'Lala', 'Lala.jpg', 24355, 1, '2016-02-16 16:17:14');
+INSERT INTO `design` (`Id`, `ProductName`, `ProductImage`, `RequestPrice`, `Description`, `UserID`, `created_at`) VALUES
+(6, '34rf43r', '34rf43r.png', 23234, 'dahel', 1, '2016-02-16 13:45:06'),
+(7, 'egrgtgrt', 'egrgtgrt.png', 23232, '', 1, '2016-02-16 13:54:56'),
+(8, 'Lala', 'Lala.jpg', 24355, '', 1, '2016-02-16 16:17:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `designimage`
+--
+
+CREATE TABLE `designimage` (
+  `Id` int(11) NOT NULL,
+  `DesignID` int(11) NOT NULL,
+  `Image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -118,7 +131,27 @@ CREATE TABLE `detail` (
 
 INSERT INTO `detail` (`Id`, `TransactionID`, `ProductID`, `PriceID`, `UnitID`, `Qty`) VALUES
 (5, 4, 18, 13, 6, 999),
-(6, 4, 7, 5, 1, 3);
+(6, 4, 7, 5, 1, 3),
+(7, 5, 18, 13, 6, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productimage`
+--
+
+CREATE TABLE `productimage` (
+  `Id` int(11) NOT NULL,
+  `ProductID` int(11) NOT NULL,
+  `Image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `productimage`
+--
+
+INSERT INTO `productimage` (`Id`, `ProductID`, `Image`) VALUES
+(1, 12, 'Testong1451720686.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,22 +165,23 @@ CREATE TABLE `products` (
   `CategoryID` int(11) NOT NULL,
   `ProductName` varchar(255) NOT NULL,
   `ProductImage` varchar(255) NOT NULL,
-  `Description` text NOT NULL
+  `Description` text NOT NULL,
+  `isDeleted` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`Id`, `DesignID`, `CategoryID`, `ProductName`, `ProductImage`, `Description`) VALUES
-(7, 6, 1, 'Test1', '34rf43r.png', 'wefewfew'),
-(8, 8, 5, 'Test2', 'Lala.jpg', ''),
-(9, 6, 1, 'Apadah', 'Apadah.jpg', 'egergergerger'),
-(10, 6, 1, 'Apadah', 'Apadah.jpg', 'egergergerger'),
-(11, 6, 1, 'Apadah', 'Apadah.jpg', 'egergergerger'),
-(12, 8, 16, 'Testong', 'Testong.jpg', 'Asasda'),
-(13, 7, 7, 'Apadah123', 'Apadah123.png', 'dwedwe'),
-(18, 8, 8, 'Warna', 'Warna.png', 'wefefre');
+INSERT INTO `products` (`Id`, `DesignID`, `CategoryID`, `ProductName`, `ProductImage`, `Description`, `isDeleted`) VALUES
+(7, 6, 1, 'Test1', '34rf43r.png', 'wefewfew', 0),
+(8, 8, 5, 'Test2', 'Lala.jpg', '', 1),
+(9, 6, 1, 'Apadah', 'Apadah.jpg', 'egergergerger', 0),
+(10, 6, 1, 'Apadah', 'Apadah.jpg', 'egergergerger', 0),
+(11, 6, 1, 'Apadah', 'Apadah.jpg', 'egergergerger', 0),
+(12, 8, 16, 'Testong', 'Testong.jpg', 'Asasda', 0),
+(13, 7, 7, 'Apadah123', 'Apadah123.png', 'dwedwe', 0),
+(18, 8, 8, 'Warna', 'Warna.png', 'wefefre', 0);
 
 -- --------------------------------------------------------
 
@@ -230,7 +264,7 @@ INSERT INTO `stock` (`Id`, `ProductID`, `UnitID`, `Stock`) VALUES
 (5, 7, 5, 0),
 (6, 8, 6, 12),
 (7, 11, 1, 2),
-(8, 18, 6, 20),
+(8, 18, 6, 10),
 (9, 12, 6, 0),
 (10, 11, 2, 0),
 (11, 11, 3, 0),
@@ -256,7 +290,8 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`Id`, `paymentstatus`, `clientID`, `timestamp`, `approvedBy`) VALUES
-(4, 0, 1, '2016-03-09 20:12:48', 0);
+(4, 1, 1, '2016-03-09 20:12:48', 1),
+(5, 1, 1, '2016-03-12 20:39:20', 1);
 
 -- --------------------------------------------------------
 
@@ -330,9 +365,21 @@ ALTER TABLE `design`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `designimage`
+--
+ALTER TABLE `designimage`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `detail`
 --
 ALTER TABLE `detail`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `productimage`
+--
+ALTER TABLE `productimage`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -398,10 +445,20 @@ ALTER TABLE `country`
 ALTER TABLE `design`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT for table `designimage`
+--
+ALTER TABLE `designimage`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `detail`
 --
 ALTER TABLE `detail`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `productimage`
+--
+ALTER TABLE `productimage`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -426,7 +483,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `units`
 --
