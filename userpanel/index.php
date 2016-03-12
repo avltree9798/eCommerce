@@ -9,6 +9,7 @@ session_start();
 if(isset($_SESSION["username"])){
     ?>
     <a href="addProduct.php">Add new Design</a><br/>
+    <a href="listDesign.php">My Design</a>
     <?php
 }else{
     header("location:../login.php");
