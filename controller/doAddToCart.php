@@ -8,7 +8,7 @@
 session_start();
 $unitID = $_GET['unitID'];
 $productID = $_GET['productID'];
-$qtys = $_GET['qty'];
+$qtys = 1;
 if(isset($_SESSION['cartSystem']['item'][0])){
     $index = -1;
     for($i=0;$i<count($_SESSION['cartSystem']['item']);$i++){

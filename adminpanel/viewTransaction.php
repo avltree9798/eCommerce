@@ -21,6 +21,7 @@ while($row=mysql_fetch_array($res)){
     $result = mysql_query($detailQuery) or die(mysql_error());
     //echo $detailQuery;
     ?>
+    <tr>
     <td><?php echo $row["Id"]; ?></td>
     <td><?php echo $row["Fullname"]; ?></td>
     <td>
@@ -33,16 +34,19 @@ while($row=mysql_fetch_array($res)){
             </tr>
         <?php
             while($baris = mysql_fetch_array($result)){
-                echo '<tr><td>'.$baris["ProductName"].'</td>';
-                echo '<td>'.$baris["Unit"].'</td>';
-                echo '<td>'.$baris["Price"].'</td>';
-                echo '<td>'.$baris["Qty"].'</td></tr>';
+               ?><tr>
+                <td><?php echo $baris["ProductName"]; ?></td>
+                <td><?php echo $baris["Unit"]; ?></td>
+                <td><?php echo $baris["Price"]; ?></td>
+                <td><?php echo $baris["Qty"]; ?></td>
+            </tr><?php
             }
         ?>
         </table>
     </td>
     <td><?php echo $row["paymentstatus"]=='0'?"Not Done<br/><button onclick=\"window.location.href='../controller/confirmPayment.php?id=$id'\">Confirm Payment</button>":"Done"; ?></td>
-    <?php
+    </tr>
+        <?php
 }
 
 ?>

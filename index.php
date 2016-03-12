@@ -9,7 +9,7 @@ require 'lib/Functions.php';
 include 'controller/config.php';
 //$query = "SELECT d.ProductName, c.Name, u.Unit, s.Stock, pp.Price FROM design d JOIN products p ON d.Id = p.DesignID JOIN categories c ON p.CategoryID = c.Id, units u, stock s, productsprice pp
 //WHERE c.Id = u.CategoryID AND s.ProductID = p.Id AND s.UnitID = u.Id AND pp.ProductID = p.Id AND pp.isCurrent = 1";
-$query = "SELECT p.Id, p.ProductName, p.ProductImage, c.Name, pp.Price, p.CategoryID FROM design d JOIN products p ON d.Id = p.DesignID JOIN categories c ON p.CategoryID = c.Id, productsprice pp WHERE pp.ProductID = p.Id AND pp.isCurrent = 1";
+$query = "SELECT p.Id, p.ProductName, p.ProductImage, c.Name, pp.Price, p.CategoryID FROM design d JOIN products p ON d.Id = p.DesignID JOIN categories c ON p.CategoryID = c.Id, productsprice pp WHERE pp.ProductID = p.Id AND pp.isCurrent = 1  AND p.isDeleted = 0";
 $result = mysql_query($query);
 $rate = new exchange_rates();
 while($row=mysql_fetch_array($result)){
@@ -56,7 +56,7 @@ while($row=mysql_fetch_array($result)){
                             <tr><td>
                                     <input type="hidden" name="unitID" value="<?php echo $id; ?>"/>
                                     <input type="hidden" name="productID" value="<?php echo $pID; ?>"/>
-                                    <?php echo $r["Unit"]; ?></td><td>:</td><td><?php echo ($max<=0)?"Out of stock":"<input type='number' name='qty' max='$max' min='1'/><input type='submit' value='Add to cart'/>"; ?></td></tr>
+                                    <?php echo $r["Unit"]; ?></td><td>:</td><td><?php echo ($max<=0)?"Out of stock":"<input type='submit' value='Add to cart'/>"; ?></td></tr>
                             </form>
                             <?php
                         }
@@ -68,7 +68,7 @@ while($row=mysql_fetch_array($result)){
                         <form method="get" action="controller/doAddToCart.php">
                             <input type="hidden" name="unitID" value="6"/>
                             <input type="hidden" name="productID" value="<?php echo $pID; ?>"/>
-                            <td colspan="2"><input type="number" name="qty"/></td>
+                            <td colspan="2"></td>
                             <td><input type="submit" value="Add to cart"/></td>
                         </form>
                         <?php
