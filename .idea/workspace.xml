@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1bd54c67-55ba-4332-a670-a14051f7735d" name="Default" comment="Search">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="" />
+    <list default="true" id="1bd54c67-55ba-4332-a670-a14051f7735d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/cached_rates.xml" afterPath="$PROJECT_DIR$/lib/cached_rates.xml" />
@@ -90,18 +89,18 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7336956">
-              <caret line="19" column="373" selection-start-line="19" selection-start-column="373" selection-end-line="19" selection-end-column="373" />
+            <state vertical-scroll-proportion="0.6086956">
+              <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
               <folding>
-                <marker date="1458567181913" expanded="true" signature="630:991" placeholder="SELECT p.Id,... design" />
-                <marker date="1458567181913" expanded="true" signature="630:992" placeholder="SELECT p.Id,... design" />
-                <marker date="1458567181913" expanded="true" signature="1033:1384" placeholder="SELECT p.Id,... design" />
-                <marker date="1458567181913" expanded="true" signature="1426:1777" placeholder="SELECT p.Id,... design" />
-                <marker date="1458567181913" expanded="true" signature="1873:2135" placeholder="SELECT p.Id,... design" />
-                <marker date="1458567181913" expanded="true" signature="2179:2431" placeholder="SELECT p.Id,... design" />
-                <marker date="1458567181913" expanded="true" signature="2688:2712" placeholder="SELECT * FRO... categories" />
-                <marker date="1458567181913" expanded="true" signature="4201:4239" placeholder="SELECT * FRO... units" />
-                <marker date="1458567181913" expanded="true" signature="4432:4491" placeholder="SELECT Stock... stock" />
+                <marker date="1458567735777" expanded="true" signature="630:991" placeholder="SELECT p.Id,... design" />
+                <marker date="1458567735777" expanded="true" signature="630:992" placeholder="SELECT p.Id,... design" />
+                <marker date="1458567735777" expanded="true" signature="1033:1384" placeholder="SELECT p.Id,... design" />
+                <marker date="1458567735777" expanded="true" signature="1426:1777" placeholder="SELECT p.Id,... design" />
+                <marker date="1458567735777" expanded="true" signature="1873:2135" placeholder="SELECT p.Id,... design" />
+                <marker date="1458567735777" expanded="true" signature="2179:2431" placeholder="SELECT p.Id,... design" />
+                <marker date="1458567735777" expanded="true" signature="2688:2712" placeholder="SELECT * FRO... categories" />
+                <marker date="1458567735777" expanded="true" signature="4199:4237" placeholder="SELECT * FRO... units" />
+                <marker date="1458567735777" expanded="true" signature="4430:4489" placeholder="SELECT Stock... stock" />
               </folding>
             </state>
           </provider>
@@ -462,7 +461,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457815640205</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Search">
+      <created>1458567718826</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1458567718826</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -577,15 +582,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1458567181913" expanded="true" signature="630:991" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="630:992" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="1033:1384" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="1426:1777" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="1873:2135" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="2179:2431" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="2688:2712" placeholder="SELECT * FRO... categories" />
-            <marker date="1458567181913" expanded="true" signature="4201:4239" placeholder="SELECT * FRO... units" />
-            <marker date="1458567181913" expanded="true" signature="4432:4491" placeholder="SELECT Stock... stock" />
+            <marker date="1458567735777" expanded="true" signature="630:991" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="630:992" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="1033:1384" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="1426:1777" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="1873:2135" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="2179:2431" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="2688:2712" placeholder="SELECT * FRO... categories" />
+            <marker date="1458567735777" expanded="true" signature="4199:4237" placeholder="SELECT * FRO... units" />
+            <marker date="1458567735777" expanded="true" signature="4430:4489" placeholder="SELECT Stock... stock" />
           </folding>
         </state>
       </provider>
@@ -1087,18 +1092,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7336956">
-          <caret line="19" column="373" selection-start-line="19" selection-start-column="373" selection-end-line="19" selection-end-column="373" />
+        <state vertical-scroll-proportion="0.6086956">
+          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding>
-            <marker date="1458567181913" expanded="true" signature="630:991" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="630:992" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="1033:1384" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="1426:1777" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="1873:2135" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="2179:2431" placeholder="SELECT p.Id,... design" />
-            <marker date="1458567181913" expanded="true" signature="2688:2712" placeholder="SELECT * FRO... categories" />
-            <marker date="1458567181913" expanded="true" signature="4201:4239" placeholder="SELECT * FRO... units" />
-            <marker date="1458567181913" expanded="true" signature="4432:4491" placeholder="SELECT Stock... stock" />
+            <marker date="1458567735777" expanded="true" signature="630:991" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="630:992" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="1033:1384" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="1426:1777" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="1873:2135" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="2179:2431" placeholder="SELECT p.Id,... design" />
+            <marker date="1458567735777" expanded="true" signature="2688:2712" placeholder="SELECT * FRO... categories" />
+            <marker date="1458567735777" expanded="true" signature="4199:4237" placeholder="SELECT * FRO... units" />
+            <marker date="1458567735777" expanded="true" signature="4430:4489" placeholder="SELECT Stock... stock" />
           </folding>
         </state>
       </provider>

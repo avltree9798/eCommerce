@@ -75,7 +75,7 @@ while($row=mysql_fetch_array($result)){
             <tr>
                 <td>Price</td>
                 <td>:</td>
-                <td><?php //echo 'Rp. '.$row["Price"]." or $".$rate->exchange_rate_convert("IDR","USD",$row["Price"]); ?></td>
+                <td><?php echo 'Rp. '.$row["Price"]." or $".$rate->exchange_rate_convert("IDR","USD",$row["Price"]); ?></td>
             </tr>
             <tr>
                 <?php
